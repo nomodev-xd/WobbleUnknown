@@ -10,8 +10,14 @@ namespace WobbleUnknown.Patches
         private static void ToggleTradeMenuPostfix()
         {
             var camera = PlayerCamera.main;
-            var trader = camera != null ? camera.currentTrader : null;
-            trader?.GetComponent<TraderWobble>()?.TriggerWobble();
+            if (camera == null || camera.tradeMenu == null) 
+                return;
+
+            if (camera.tradeMenu.activeSelf)
+            {
+                var trader = camera.currentTrader;
+                trader?.GetComponent<TraderWobble>()?.TriggerWobble();
+            }
         }
     }
 }

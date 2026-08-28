@@ -48,6 +48,8 @@ namespace WobbleUnknown
                 var direction = Random.insideUnitCircle.normalized;
                 limb.Velocity = direction * Random.Range(18f, 28f) * limb.Weight;
             }
+
+            SoundLoader.PlayRandSound();
         }
 
         public void ApplyWobble()

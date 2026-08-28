@@ -8,6 +8,10 @@
     <PropertyGroup>
         <CUGameDir Condition="'$(CUGameDir)' == ''">$(registry:HKEY_CURRENT_USER\Software\Valve\Steam@SteamPath)\steamapps\common\Casualties Unknown Demo</CUGameDir>
     </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Sounds\**\*" />
+    </ItemGroup>
     
     <ItemGroup>
         <Reference Include="BepInEx">
@@ -20,6 +24,10 @@
         </Reference>
         <Reference Include="UnityEngine">
             <HintPath>$(CUGameDir)\CasualtiesUnknown_Data\Managed\UnityEngine.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AudioModule">
+            <HintPath>$(CUGameDir)\CasualtiesUnknown_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
             <Private>false</Private>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
